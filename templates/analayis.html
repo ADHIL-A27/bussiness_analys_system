@@ -1,0 +1,380 @@
+<br>
+<br>
+<br>
+{% extends 'base.html' %}
+{% block body %}
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>analys</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/ass/img/favicon.png" rel="icon">
+  <link href="static/ass/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/ass/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/ass/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/ass/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/ass/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="static/ass/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="static/ass/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/ass/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/ass/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <section class="section dashboard">
+    <div class="row">
+
+      <!-- Left side columns -->
+      <div class="col-lg-8">
+        <div class="row">
+
+          <!-- Sales Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card sales-card">
+
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Today</a></li>
+                  <li><a class="dropdown-item" href="#">This Month</a></li>
+                  <li><a class="dropdown-item" href="#">This Year</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Sales <span>| Today</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-cart"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>145</h6>
+                    <span class="text-success small pt-1 fw-bold">12%</span> <span
+                      class="text-muted small pt-2 ps-1">increase</span>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Sales Card -->
+
+          <!-- Revenue Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card revenue-card">
+
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Today</a></li>
+                  <li><a class="dropdown-item" href="#">This Month</a></li>
+                  <li><a class="dropdown-item" href="#">This Year</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Revenue <span>| This Month</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-currency-dollar"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>{{total_amount}}</h6>
+                    <span class="text-success small pt-1 fw-bold">8%</span> <span
+                      class="text-muted small pt-2 ps-1">increase</span>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Revenue Card -->
+
+          <!-- Customers Card -->
+          <div class="col-xxl-4 col-xl-12">
+
+            <div class="card info-card customers-card">
+
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Today</a></li>
+                  <li><a class="dropdown-item" href="#">This Month</a></li>
+                  <li><a class="dropdown-item" href="#">This Year</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Customers <span>| This Year</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-people"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>{{count}}</h6>
+                    <span class="text-danger small pt-1 fw-bold">12%</span> <span
+                      class="text-muted small pt-2 ps-1">decrease</span>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div><!-- End Customers Card -->
+
+          <!-- Reports -->
+          <div class="col-12">
+            <div class="card">
+
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Today</a></li>
+                  <li><a class="dropdown-item" href="#">This Month</a></li>
+                  <li><a class="dropdown-item" href="#">This Year</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Reports <span>/Today</span></h5>
+
+                <!-- Line Chart -->
+                <div id="reportsChart"></div>
+
+                <script>
+                  var dates = {{ dates| safe }};
+                  document.addEventListener("DOMContentLoaded", () => {
+                    new ApexCharts(document.querySelector("#reportsChart"),
+                      {
+                        series: [{
+                          name: 'Sales',
+                          data: [600, 300, 100, 500, 600, 400]
+                        }, {
+                          name: 'Revenue',
+                          data: [{% for test in tests %}'{{test.price}}', {% endfor %}]
+                        }, {
+                    name: 'Customers',
+                    data: [{{ count }}]
+                        }],
+                    chart: {
+                    height: 413,
+                    type: 'area',
+                    toolbar: {
+                      show: true
+                    },
+                  },
+                    markers: {
+                    size: 4
+                  },
+                    colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                    fill: {
+                    type: "gradient",
+                    gradient: {
+                      shadeIntensity: 1,
+                      opacityFrom: 0.3,
+                      opacityTo: 0.4,
+                      stops: [0, 90, 100]
+                    }
+                  },
+                    dataLabels: {
+                    enabled: false
+                  },
+                    stroke: {
+                    curve: 'smooth',
+                    width: 3
+                  },
+                    xaxis: {
+                    type: 'datetime',
+                    categories: dates
+                  },
+                    tooltip: {
+                    x: {
+                      format: 'dd/MM/yy HH:mm'
+                    },
+                  }
+                      }).render();
+                    });
+                </script>
+                <!-- End Line Chart -->
+
+              </div>
+
+            </div>
+          </div><!-- End Reports -->
+
+
+
+
+        </div>
+      </div><!-- End Left side columns -->
+
+
+      <!--  Orders  -->
+      <div class="col-lg-4">
+
+        <h6 class="card-title lg">Orders</h6>
+
+        <!-- Default Accordion -->
+        <form method="get" action="{% url 'analayis' %}">
+          <div class="col-sm-6">
+            <input type="text" class="form-control form-control-sm" name="query"
+              style="background-color: #333; color: #fff;" value="{{ query }}" placeholder="yyyy-dd-mm">
+            <br>
+          </div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-success">Search</button>
+          </div>
+        </form>
+        <form method="post" action="">
+          {% csrf_token %}
+          {% if requirs %}
+          {% for requir in requirs %}
+          <div class="accordion">
+            <div class="accordion-item">
+              <button class="accordion-button " type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false">
+                <h5>{{requir.name}}</h5>
+              </button>
+              </h2>
+              <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse"
+                aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>
+                    Due date:{{requir.due_date}}
+                    <br>
+                    Phone:{{requir.phone}}
+                    <br>
+                  </strong>
+                  <h5>---------------------------------------------------</h5>
+                  <h3><code>requirments</code></h3>
+                  <br>
+                  {{requir.content}}
+                  <br>
+                  <br>
+
+
+
+        </form>
+
+
+      </div>
+
+    </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>boss don't worrey😂😂</p>
+    {% endif %} my html
+
+    {% comment %} <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+          aria-expanded="false" aria-controls="collapseTwo">
+          <h5>{{requir.name}}</h5>
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>
+            NAME:
+            <br>
+            phone:
+            <br>
+          </strong>
+          <h3>-------------------------------------</h3>
+          <h3><code>requirments</code></h3>
+          <br>
+
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Accordion Item #3
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse
+          plugin adds the appropriate classes that we use to style each element. These classes control the overall
+          appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+          custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+          within the <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+      </div>
+    </div> {% endcomment %}
+    </div><!-- End Default Accordion Example -->
+
+
+
+
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="static/ass/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="static/ass/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/ass/vendor/chart.js/chart.umd.js"></script>
+    <script src="static/ass/vendor/echarts/echarts.min.js"></script>
+    <script src="static/ass/vendor/quill/quill.min.js"></script>
+    <script src="static/ass/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="static/ass/vendor/tinymce/tinymce.min.js"></script>
+    <script src="static/ass/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="static/ass/js/main.js"></script>
+
+</body>
+
+</html>
+
+
+{% endblock body %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br>
+<br>
+
+
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">CUSTOMERS HERE</h3>
+          <p>your all customers you can contact from below datas and search using code.you make sure that code have thair pdf file and check that with datas!!!!</p>
+
+          <!-- Table with stripped rows -->
+          <table class="table datatable">
+            <thead>
+              <tr>
+                <th scope="col">CODE</th>
+                <th scope="col">NAME</th>
+                <th scope="col">PHONE</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">DESCRIPTION</th>
+                <th scope="col">AMOUNT</th>
+                <th scope="col">DATE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <form method="get" action="{% url 'customers' %}">
+                <div class="col-sm-2">
+                  <input type="text" class="form-control form-control-sm" name="query"
+                    style="background-color: #333; color: #fff;" value="{{ query }}" placeholder="Enter code">
+                  <br>
+                </div>
+                <button type="submit" class="btn btn-lg btn-success">Search</button>
+              </form>
+              {% if posts %}
+              {% for post in posts %}
+              <tr>
+                <th scope="row">{{post.code}}</th>
+                <td>{{post.clint_name}}</td>
+                <td>{{post.clint_phone}}</td>
+                <td>{{post.clint_email}}</td>
+                <td>{{post.desc}}</td>
+                <td>{{post.price}}</td>
+                <td>{{post.pub_date}}</td>
+              </tr>
+              {% endfor %}
+              {% else %}
+              <p>No contact found.</p>
+              {% endif %}
+            </tbody>
+          </table>
+          <!-- End Table with stripped rows -->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+{% endblock body %}
